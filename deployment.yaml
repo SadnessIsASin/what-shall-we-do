@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: what-shall-we-do
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: what-shall-we-do
+  template:
+    metadata:
+      labels:
+        app: what-shall-we-do
+    spec:
+      containers:
+        - name: what-shall-we-do
+          image: your-dockerhub-username/what-shall-we-do:latest
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: what-shall-we-do-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: what-shall-we-do
