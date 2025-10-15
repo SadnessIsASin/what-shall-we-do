@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: what-shall-we-do
-          image: your-dockerhub-username/what-shall-we-do:latest
+          image: sadnessisasin/what-shall-we-do:latest
           ports:
             - containerPort: 8080
 ---
